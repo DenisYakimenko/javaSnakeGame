@@ -70,9 +70,9 @@ public class GameField extends JPanel implements ActionListener {
             }
         }else{
             String str = "Game Over";
-            Font f = new Font("Arial",14,Font.BOLD);
+          //  Font f = new Font("Arial",14,Font.BOLD);
             g.setColor(Color.white);
-            g.setFont(f);
+          //  g.setFont(f);
             g.drawString(str,125,SIZE/2);
         }
     }
@@ -100,7 +100,7 @@ public class GameField extends JPanel implements ActionListener {
     public void checkApple() {
         if (x[0] == appleX && y[0] == appleY) {
             dots++;
-            checkApple();
+            createApple();
         }
     }
 
