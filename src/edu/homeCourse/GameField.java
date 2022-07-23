@@ -2,9 +2,11 @@ package edu.homeCourse;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
-public class GameField extends JPanel {
+public class GameField extends JPanel implements ActionListener {
     private final int SIZE = 320;// макс размер поля
     private final int DOT_SIZE = 16;// размер ячейки
     private final int ALL_DOTS = 400;
@@ -52,5 +54,31 @@ public void loadImages(){
     apple = iid.getImage();
 
 }
+public void move(){
+    for (int i = dots; i >0 ; i--) {
+        x[i] = x[i-1];
+        y[i] = y[i-1];
+    }
+    if(right){
+        x[0] -= DOT_SIZE;
+    }
+    if(right){
+        x[0] += DOT_SIZE;
+    }
+    if(up){
+        y[0] -= DOT_SIZE;
+    }
+    if(down){
+        y[0] += DOT_SIZE;
+    }
+}
 
+    @Override // метод который срабатывает каждые 250 сек
+    public void actionPerformed(ActionEvent e) {
+        if (inGame){
+            move();
+
+        }
+        repaint(); // метод перерисовывает поле
+    }
 }
