@@ -22,9 +22,11 @@ public class GameField extends JPanel {
     private boolean inGame = true;
 
     public GameField(){
-        
+        setBackground(Color.black);
     }
 
+public void loadImages(){
 
+}
 
 }
