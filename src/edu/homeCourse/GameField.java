@@ -52,7 +52,7 @@ public void loadImages(){
     apple = iia.getImage();
 
     ImageIcon iid = new ImageIcon("dot.png");
-    apple = iid.getImage();
+    dot = iid.getImage();
 
 }
 
@@ -73,7 +73,7 @@ public void move(){
         x[i] = x[i-1];
         y[i] = y[i-1];
     }
-    if(right){
+    if(left){
         x[0] -= DOT_SIZE;
     }
     if(right){
@@ -104,9 +104,6 @@ public void checkCollisions(){
         inGame =false;
     }
     if(x[0]<0){
-        inGame = false;
-    }
-    if(y[0]>SIZE){
         inGame = false;
     }
     if(y[0]>SIZE){
