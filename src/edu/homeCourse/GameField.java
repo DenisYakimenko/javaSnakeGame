@@ -30,6 +30,8 @@ public class GameField extends JPanel implements ActionListener {
         setBackground(Color.black);
         loadImages();
         initGame();
+        addKeyListener(new FieldKeyListener());
+        setFocusable(true);
     }
 
     public void initGame() {
@@ -66,6 +68,12 @@ public class GameField extends JPanel implements ActionListener {
             for (int i = 0; i < dots; i++) {
                 g.drawImage(dot, x[i], y[i], this);
             }
+        }else{
+            String str = "Game Over";
+            Font f = new Font("Arial",14,Font.BOLD);
+            g.setColor(Color.white);
+            g.setFont(f);
+            g.drawString(str,125,SIZE/2);
         }
     }
 
