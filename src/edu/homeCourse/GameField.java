@@ -27,6 +27,7 @@ public class GameField extends JPanel implements ActionListener {
     public GameField(){
         setBackground(Color.black);
         loadImages();
+        initGame();
     }
 
     public void initGame(){
@@ -54,6 +55,19 @@ public void loadImages(){
     apple = iid.getImage();
 
 }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if(inGame){
+            g.drawImage(apple,appleX,appleY,this);
+            for(int i=0; i<dots; i++){
+                g.drawImage(dot,x[i],y[i],this);
+            }
+        }
+    }
+
+    // движение змейки
 public void move(){
     for (int i = dots; i >0 ; i--) {
         x[i] = x[i-1];
