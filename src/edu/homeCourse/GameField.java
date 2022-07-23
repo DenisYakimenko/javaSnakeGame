@@ -87,9 +87,41 @@ public void move(){
     }
 }
 
+public void checkApple(){
+        if (x[0]== appleX && y[0] == appleY){
+            dots++;
+            checkApple();
+        }
+}
+
+public void checkCollisions(){
+    for (int i = dots; i >0 ; i--) {
+        if(i>4 && x[0] == x[i] && y[0] == y[i]){
+            inGame = false;
+        }
+    }
+    if(x[0]>SIZE){
+        inGame =false;
+    }
+    if(x[0]<0){
+        inGame = false;
+    }
+    if(y[0]>SIZE){
+        inGame = false;
+    }
+    if(y[0]>SIZE){
+        inGame = false;
+    }
+    if(y[0]<0){
+        inGame = false;
+    }
+}
+
     @Override // метод который срабатывает каждые 250 сек
     public void actionPerformed(ActionEvent e) {
         if (inGame){
+            checkApple();
+            checkCollisions();
             move();
 
         }
